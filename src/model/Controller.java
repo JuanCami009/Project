@@ -1,15 +1,15 @@
 package model;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class Controller {
 
 	private Project[] projects;
+	private static final int SIZE = 10;
 
 	public Controller() {
 
-		projects = new Project[10];
+		projects = new Project[SIZE];
 	
 	}
 	
@@ -37,5 +37,16 @@ public class Controller {
 
 		return msg;
 
+	}
+	public int getFirstValidPosition(){
+		int pos = -1; 
+		boolean isFound = false; 
+		for(int i = 0; i < SIZE && !isFound; i++){
+			if(projects[i] == null){
+				pos = i; 
+				isFound = true;
+			}
+		}
+		return pos; 
 	}
 }
