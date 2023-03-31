@@ -1,8 +1,6 @@
 package model;
 
 import java.util.Calendar;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
 
 
 public class Controller {
@@ -11,14 +9,12 @@ public class Controller {
 	
 	private static final int SIZE = 10;
 
-	private DateFormat formatter;
 
 
 	public Controller() {
 
 		projects = new Project[SIZE];
 
-		this.formatter = new SimpleDateFormat("dd/M/yy");
 	
 	}
 	
@@ -40,7 +36,7 @@ public class Controller {
 		for(int i = 0; i<SIZE && !isFound; i++){
 			if(projects[i].getName().equalsIgnoreCase(nameProject)){
 				isFound = true;
-                System.out.println("La fecha final del proyecto es: "+projects[i].getFinalDate());
+                System.out.println("La fecha final del proyecto es: "+projects[i].getFinalDateFormated());
                
 			}else {
 				isFound = true;
@@ -63,7 +59,7 @@ public class Controller {
 			if(projects[i].getName().equalsIgnoreCase(nameProject)){
 				isFound = true;
 				
-                System.out.println("La fecha incial del proyecto es: "+projects[i].getInitialDate());
+                System.out.println("La fecha incial del proyecto es: "+projects[i].getInitialDateFormated());
 			}
 			else {
                 isFound = true;

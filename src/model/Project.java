@@ -19,7 +19,7 @@ public class Project{
 
 	public Project(String name, String clientName, Calendar initialDate, Calendar finalDate, double budget){
 		
-		this.formatter = new SimpleDateFormat("dd/M/yy");
+		this.formatter = new SimpleDateFormat("dd-MM-yyyy");
 
 		this.name = name;	
 		this.clientName = clientName;
@@ -40,7 +40,7 @@ public class Project{
 		return initialDate;
 	}
 	
-	public String getInitialDateFormated() throws ParseException{
+	public String getInitialDateFormated(){
 		return formatter.format(this.initialDate.getTime());
 	}
 
@@ -48,7 +48,7 @@ public class Project{
 		return finalDate;
 	}
 
-	public String getFinalDateFormated() throws ParseException{
+	public String getFinalDateFormated(){
 		return formatter.format(this.finalDate.getTime());
 	}		
 

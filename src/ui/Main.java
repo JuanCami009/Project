@@ -1,4 +1,5 @@
 package ui;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -23,6 +24,7 @@ public class Main{
 		do{
 			exe.menu();
 			option = exe.validateIntegerInput();
+			exe.executeOption(option);
 
 		}while(option != 0);
 		
@@ -33,8 +35,8 @@ public class Main{
 	// Incomplete
 	public void menu() {
 		System.out.println("1. Registrar proyecto");
-		System.out.println("1. Consultar proyectos que finalizan antes de la fecha");
-		System.out.println("1. Consultar proyectos que inician despúes de la fecha");
+		System.out.println("2. Consultar proyectos que finalizan antes de la fecha");
+		System.out.println("3. Consultar proyectos que inician despúes de la fecha");
 		System.out.println("0. Salir");
 	}
 
@@ -50,7 +52,7 @@ public class Main{
 			break;
 
 			case 3:
-			searchProjectsAfterDate();
+			searchProjectsBeforeDate();
 			break;
 
 			case -1:
@@ -74,11 +76,12 @@ public class Main{
 	System.out.println("Digite el nombre del cliente");
 	clientName = reader.next();
 	initialDate = Calendar.getInstance();
-	System.out.println("La fecha de incio es: "+initialDate);
+	String timeStamp = new SimpleDateFormat("dd-MM-yyyy").format(initialDate.getTime());
+	System.out.println("La fecha de incio es: "+timeStamp);
 	System.out.println("Digite en meses cuanto va durar el proyecto: ");
 	month = reader.nextInt();
 	finalDate = Calendar.getInstance();
-	finalDate.add(Calendar.MONTH, month); 
+	finalDate.add(Calendar.MONTH, month);
 	System.out.println("Digite el presupuesto para el proyecto");
 	budget= reader.nextDouble();
 
