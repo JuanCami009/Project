@@ -89,11 +89,24 @@ public class Main{
 
 	//Incomplete
 	public void searchProjectsAfterDate() {
+		String nameProject;
+
+		System.out.println("Digite el nombre del proyecto: ");
+		nameProject = reader.next();
+
+		controller.searchProjectsAfterDate(nameProject);
 
 	}
 	
 	//Incomplete
 	public void searchProjectsBeforeDate() {
+
+		String nameProject;
+
+		System.out.println("Digite el nombre del proyecto: ");
+		nameProject = reader.next();
+
+		controller.searchProjectsBeforeDate(nameProject);
 
 	}
 
