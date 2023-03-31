@@ -1,5 +1,4 @@
 package ui;
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -9,13 +8,11 @@ public class Main{
 
 	private Scanner reader;
 	private Controller controller;
-	private Calendar rightNow;
 
 	public Main() {
 
 		reader = new Scanner(System.in);
 		controller = new Controller();
-		rightNow = Calendar.getInstance();
 	}
 
 	public static void main(String[] args) {
@@ -69,22 +66,25 @@ public class Main{
 	String clientName;
 	Calendar initialDate;
 	Calendar finalDate;
+	int month;
 	double budget;
-	DateFormat formatter;
 
 	System.out.println("Digite el nombre del proyecto");
 	name = reader.next();
 	System.out.println("Digite el nombre del cliente");
 	clientName = reader.next();
-	System.out.println("Digite la fecha de inicio");
-	
-	System.out.println("Digite la fecha de fin");
-
-
+	initialDate = Calendar.getInstance();
+	System.out.println("La fecha de incio es: "+initialDate);
+	System.out.println("Digite en meses cuanto va durar el proyecto: ");
+	month = reader.nextInt();
+	finalDate = Calendar.getInstance();
+	finalDate.add(Calendar.MONTH, month); 
 	System.out.println("Digite el presupuesto para el proyecto");
 	budget= reader.nextDouble();
 
+	controller.RegisterProject(name, clientName, initialDate, finalDate, budget);
 
+	
 	}
 
 	//Incomplete
